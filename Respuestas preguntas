@@ -1,0 +1,24 @@
+Solución de preguntas 
+
+1. ¿Aceptará la calculadora una línea que contenga solo un comentario? ¿Por qué no? ¿Sería más fácil arreglar esto en el escáner o en el analizador?
+  1.1 El escaner de la calculadora esta diseñado para recibir y reconocer tokens como operadores y numeros, por lo tanto no estan programado para recibir solo un comentario.
+  1.2 La manera mas facil de arreglarlo seria en el escaner, ya que en el escaner se puede modificar para que este reconozca solo un comentario, se debe hacer en el escaner antes de que pase por el
+      analizador, esto permitira que el flujo del codigo se mantenga normal, asi no se afecta el analizador que es bison y se adecua el escaner que es flex para que lea el comentario.
+
+2 y 3 - Codigo subido en el repositorio
+
+4. ¿Reconoce la versión escrita a mano del escáner del Ejemplo 1-4 exactamente los mismos tokens que la versión de Flex?
+  No reconoce exactamente los mismos tokens, las dos maneras reconocen tokens pero no la misma cantidad, ya que en la version que esta escrita a mano se implementa manualmente la logica 
+  para reconocer y que se lea de manera correcta los tokens, en esta version se llaman funciones para que estas ayuden al reconocimiento de patrones carácter por carácter, por eso mismo 
+  la version a mano es menos eficiente, en cambio la version en flex reconoce los tokens de manera mas sencilla ya que estos estan definidos mediante expresiones regulares, expresiones ya determinadas.
+
+5. ¿Puedes pensar en lenguajes para los cuales flex no sería una buena herramienta para escribir un escáner?
+  Flex es una herrramienta para gramaticas simples y patrones regulares, por lo que no es eficiente en lenguajes mucho mas complejos, lenguajes como:
+  ° Lenguajes con gramáticas libres de contexto (CFG) como Python, donde la estructura del código depende del contexto de las expresiones, flex no es adecuado para estos lenguajes porque no puede 
+    manejar gramáticas contextuales o recursivas que son más complejas.
+
+6. Reescribe el programa de conteo de palabras en C. Ejecuta algunos archivos grandes en ambas versiones. ¿Es la versión en C significativamente más rápida? ¿Cuánto más difícil fue depurar?
+  6.1 La diferencia en tiempo es bastante significativa, aunque la version de flex sigue siendo mas rapida por poca diferencia, por lo tanto la version de flex es mas rapida que la de C 
+  auqnue sea minimo.
+  6.2 La version de C es mas facil de depurar ya que se tiene mayor control de flujo y es mas facil usar herramientas para controlar el codigo, para flex es un poco mas complicado porque este
+  depende de código generado automáticamente y hace que el proceso de depurar sea mas complicado.
